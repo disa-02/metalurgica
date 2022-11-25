@@ -1,0 +1,28 @@
+{
+  "applications": "*",
+  "changelogDate": "20221125150153",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "sales_person",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "SalesPerson",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "employee",
+      "ownerSide": true,
+      "relationshipName": "emloyee",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "sale",
+      "otherEntityRelationshipName": "salesPerson",
+      "relationshipName": "sale",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

@@ -1,0 +1,16 @@
+com/eq02/metalurgica/domain/Subscribe_.class
+com/eq02/metalurgica/domain/User_.class
+META-INF/spring-configuration-metadata.json
+com/eq02/metalurgica/domain/Notification_.class
+com/eq02/metalurgica/domain/Authority_.class
+com/eq02/metalurgica/domain/MadeOf_.class
+com/eq02/metalurgica/domain/Sale_.class
+com/eq02/metalurgica/domain/Operator_.class
+com/eq02/metalurgica/domain/RawMaterial_.class
+com/eq02/metalurgica/domain/Roow_.class
+com/eq02/metalurgica/domain/Admin_.class
+com/eq02/metalurgica/domain/AbstractAuditingEntity_.class
+com/eq02/metalurgica/domain/Product_.class
+com/eq02/metalurgica/domain/SalesPerson_.class
+com/eq02/metalurgica/domain/Employee_.class
+com/eq02/metalurgica/domain/Record_.class

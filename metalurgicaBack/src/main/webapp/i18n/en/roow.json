@@ -1,0 +1,27 @@
+{
+  "metalurgicaBckApp": {
+    "roow": {
+      "home": {
+        "title": "Roows",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Roow",
+        "createOrEditLabel": "Create or edit a Roow",
+        "notFound": "No Roows found"
+      },
+      "created": "A new Roow is created with identifier {{ param }}",
+      "updated": "A Roow is updated with identifier {{ param }}",
+      "deleted": "A Roow is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Roow {{ id }}?"
+      },
+      "detail": {
+        "title": "Roow"
+      },
+      "id": "ID",
+      "amountProduct": "Amount Product",
+      "subTotal": "Sub Total",
+      "sale": "Sale",
+      "product": "Product"
+    }
+  }
+}

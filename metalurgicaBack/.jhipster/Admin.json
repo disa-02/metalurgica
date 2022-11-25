@@ -1,0 +1,22 @@
+{
+  "applications": "*",
+  "changelogDate": "20221125150152",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "admin",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Admin",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "employee",
+      "ownerSide": true,
+      "relationshipName": "emloyee",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

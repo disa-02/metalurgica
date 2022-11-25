@@ -1,0 +1,45 @@
+{
+  "applications": "*",
+  "changelogDate": "20221125150200",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "product",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stock",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "buyPrice",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "sellPrice",
+      "fieldType": "Double"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Product",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "madeOf",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "madeOf",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "roow",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "roow",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

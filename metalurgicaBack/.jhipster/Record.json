@@ -1,0 +1,31 @@
+{
+  "applications": "*",
+  "changelogDate": "20221125150158",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "record",
+  "fields": [
+    {
+      "fieldName": "dateRange",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "amount",
+      "fieldType": "Double"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Record",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "sale",
+      "otherEntityRelationshipName": "record",
+      "relationshipName": "sale",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

@@ -1,0 +1,31 @@
+{
+  "applications": "*",
+  "changelogDate": "20221125150202",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "raw_material",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stock",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "RawMaterial",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "madeOf",
+      "otherEntityRelationshipName": "rawMaterial",
+      "relationshipName": "madeOf",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

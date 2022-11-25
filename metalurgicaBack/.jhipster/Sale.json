@@ -1,0 +1,47 @@
+{
+  "applications": "*",
+  "changelogDate": "20221125150157",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "sale",
+  "fields": [
+    {
+      "fieldName": "saleCode",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "total",
+      "fieldType": "Double"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Sale",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "roow",
+      "otherEntityRelationshipName": "sale",
+      "relationshipName": "roow",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "salesPerson",
+      "otherEntityRelationshipName": "sale",
+      "relationshipName": "salesPerson",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "record",
+      "otherEntityRelationshipName": "sale",
+      "relationshipName": "record",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

@@ -1,0 +1,28 @@
+{
+  "applications": "*",
+  "changelogDate": "20221125150154",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "operator",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Operator",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "employee",
+      "ownerSide": true,
+      "relationshipName": "emloyee",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "subscribe",
+      "otherEntityRelationshipName": "operator",
+      "relationshipName": "subscribe",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

@@ -1,0 +1,28 @@
+{
+  "applications": "*",
+  "changelogDate": "20221125150156",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "subscribe",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Subscribe",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "notification",
+      "otherEntityRelationshipName": "subscribe",
+      "relationshipName": "notification",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "operator",
+      "otherEntityRelationshipName": "subscribe",
+      "relationshipName": "operator",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

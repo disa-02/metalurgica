@@ -1,0 +1,26 @@
+{
+  "metalurgicaBckApp": {
+    "rawMaterial": {
+      "home": {
+        "title": "Raw Materials",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Raw Material",
+        "createOrEditLabel": "Create or edit a Raw Material",
+        "notFound": "No Raw Materials found"
+      },
+      "created": "A new Raw Material is created with identifier {{ param }}",
+      "updated": "A Raw Material is updated with identifier {{ param }}",
+      "deleted": "A Raw Material is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Raw Material {{ id }}?"
+      },
+      "detail": {
+        "title": "Raw Material"
+      },
+      "id": "ID",
+      "name": "Name",
+      "stock": "Stock",
+      "madeOf": "Made Of"
+    }
+  }
+}

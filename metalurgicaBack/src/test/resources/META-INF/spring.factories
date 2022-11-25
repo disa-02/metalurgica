@@ -1,0 +1,1 @@
+org.springframework.test.context.ContextCustomizerFactory = com.eq02.metalurgica.config.TestContainersSpringContextCustomizerFactory

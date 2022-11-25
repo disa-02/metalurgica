@@ -1,0 +1,25 @@
+{
+  "metalurgicaBckApp": {
+    "salesPerson": {
+      "home": {
+        "title": "Sales People",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Sales Person",
+        "createOrEditLabel": "Create or edit a Sales Person",
+        "notFound": "No Sales People found"
+      },
+      "created": "A new Sales Person is created with identifier {{ param }}",
+      "updated": "A Sales Person is updated with identifier {{ param }}",
+      "deleted": "A Sales Person is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Sales Person {{ id }}?"
+      },
+      "detail": {
+        "title": "Sales Person"
+      },
+      "id": "ID",
+      "emloyee": "Emloyee",
+      "sale": "Sale"
+    }
+  }
+}

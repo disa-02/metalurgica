@@ -1,0 +1,26 @@
+{
+  "metalurgicaBckApp": {
+    "madeOf": {
+      "home": {
+        "title": "Madeoves",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Made Of",
+        "createOrEditLabel": "Create or edit a Made Of",
+        "notFound": "No Madeoves found"
+      },
+      "created": "A new Made Of is created with identifier {{ param }}",
+      "updated": "A Made Of is updated with identifier {{ param }}",
+      "deleted": "A Made Of is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Made Of {{ id }}?"
+      },
+      "detail": {
+        "title": "Made Of"
+      },
+      "id": "ID",
+      "amountMaterial": "Amount Material",
+      "rawMaterial": "Raw Material",
+      "product": "Product"
+    }
+  }
+}

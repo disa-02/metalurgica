@@ -1,0 +1,33 @@
+{
+  "applications": "*",
+  "changelogDate": "20221125150201",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "made_of",
+  "fields": [
+    {
+      "fieldName": "amountMaterial",
+      "fieldType": "Double"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "MadeOf",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "rawMaterial",
+      "otherEntityRelationshipName": "madeOf",
+      "relationshipName": "rawMaterial",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "madeOf",
+      "relationshipName": "product",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

@@ -1,0 +1,104 @@
+entity Employee{
+    @Id name String,
+    tipo Integer,
+    email String
+}
+
+entity Admin{
+
+}
+
+entity SalesPerson{
+
+}
+
+entity Operator{
+
+}
+
+entity Notification{
+	descripcion String,
+    tipo Integer
+}
+
+entity Subscribe{
+
+}
+
+entity Sale{
+	saleCode Integer,
+    date LocalDate,
+    total Double    
+}
+
+entity Record{
+	dateRange LocalDate,
+    amount Double
+}
+
+entity Roow{
+	amountProduct Integer,
+    subTotal Double
+}
+
+entity Product{
+	name String,
+    stock Integer,
+    buyPrice Double,
+    sellPrice Double
+}
+
+entity MadeOf{
+	amountMaterial Double
+}
+
+entity RawMaterial{
+	name String,
+    stock Integer
+}
+
+relationship OneToOne{
+	Admin{emloyee} to Employee,
+    SalesPerson{emloyee} to Employee,
+    Operator{emloyee} to Employee
+}
+
+relationship OneToMany{
+	Notification{subscribe} to Subscribe{notification},
+    Operator{subscribe} to Subscribe{operator},
+	SalesPerson{sale} to Sale{salesPerson},
+    Sale{roow} to Roow{sale},
+    Record{sale} to Sale{record},
+    RawMaterial{madeOf} to MadeOf{rawMaterial},
+    Product{madeOf} to MadeOf{product},
+    Product{roow} to Roow{product}
+}
+
+
+
+
+
+
+
+
+
+
+enum Language {
+    FRENCH, ENGLISH, SPANISH
+}
+
+
+
+
+
+
+
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Employee, Job
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

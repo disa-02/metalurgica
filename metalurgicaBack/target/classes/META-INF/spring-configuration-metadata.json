@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "name": "application",
+      "type": "com.eq02.metalurgica.config.ApplicationProperties",
+      "sourceType": "com.eq02.metalurgica.config.ApplicationProperties"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}
