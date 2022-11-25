@@ -1,0 +1,159 @@
+######################
+# Project Specific
+######################
+metalurgicaBck/src/main/webapp/content/css/main.css
+metalurgicaBck/target/classes/static/**
+metalurgicaBck/src/test/javascript/coverage/
+
+######################
+# Node
+######################
+metalurgicaBck/node/
+metalurgicaBck/node_tmp/
+metalurgicaBck/node_modules/
+metalurgicaBck/npm-debug.log.*
+metalurgicaBck/.awcache/*
+metalurgicaBck/.cache-loader/*
+
+######################
+# SASS
+######################
+metalurgicaBck/.sass-cache/
+
+######################
+# Eclipse
+######################
+*.pydevproject
+.project
+.metadata
+tmp/
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+.factorypath
+/src/main/resources/rebel.xml
+
+# External tool builders
+.externalToolBuilders/**
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# CDT-specific
+.cproject
+
+# PDT-specific
+.buildpath
+
+# STS-specific
+/.sts4-cache/*
+
+######################
+# IntelliJ
+######################
+.idea/
+*.iml
+*.iws
+*.ipr
+*.ids
+*.orig
+classes/
+out/
+
+######################
+# Visual Studio Code
+######################
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+######################
+# Maven
+######################
+metalurgicaBck/log/
+metalurgicaBck/target/
+
+######################
+# Gradle
+######################
+metalurgicaBck/.gradle/
+metalurgicaBck/build/
+
+######################
+# Package Files
+######################
+metalurgicaBck/*.jar
+metalurgicaBck/*.war
+metalurgicaBck/*.ear
+metalurgicaBck/*.db
+
+######################
+# Windows
+######################
+# Windows image file caches
+Thumbs.db
+
+# Folder config file
+Desktop.ini
+
+######################
+# Mac OSX
+######################
+.DS_Store
+.svn
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+######################
+# Directories
+######################
+metalurgicaBck/bin/
+metalurgicaBck/deploy/
+
+######################
+# Logs
+######################
+metalurgicaBck/*.log*
+
+######################
+# Others
+######################
+metalurgicaBck/*.class
+metalurgicaBck/*.*~
+metalurgicaBck/*~
+metalurgicaBck/.merge_file*
+
+######################
+# Gradle Wrapper
+######################
+metalurgicaBck/!gradle/wrapper/gradle-wrapper.jar
+
+######################
+# Maven Wrapper
+######################
+metalurgicaBck/!.mvn/wrapper/maven-wrapper.jar
+
+######################
+# ESLint
+######################
+.eslintcache
+
+######################
+# Code coverage
+######################
+metalurgicaBck/coverage/
+metalurgicaBck/.nyc_output/
