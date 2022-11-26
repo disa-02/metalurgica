@@ -3,9 +3,9 @@
   <target name="main">
     <condition else="false" property="skip.npm" value="true">
       <and>
-        <available file="checksums.csv" filepath="/home/disa/Desktop/workspace/IngSoftware/metalurgicaBck/target" />
-        <available file="checksums.csv.old" filepath="/home/disa/Desktop/workspace/IngSoftware/metalurgicaBck/target" />
-        <filesmatch file2="/home/disa/Desktop/workspace/IngSoftware/metalurgicaBck/target/checksums.csv.old" file1="/home/disa/Desktop/workspace/IngSoftware/metalurgicaBck/target/checksums.csv" />
+        <available file="checksums.csv" filepath="/home/disa/Desktop/workspace/ingSoftware/metalurgica/metalurgicaBack/target" />
+        <available file="checksums.csv.old" filepath="/home/disa/Desktop/workspace/ingSoftware/metalurgica/metalurgicaBack/target" />
+        <filesmatch file2="/home/disa/Desktop/workspace/ingSoftware/metalurgica/metalurgicaBack/target/checksums.csv.old" file1="/home/disa/Desktop/workspace/ingSoftware/metalurgica/metalurgicaBack/target/checksums.csv" />
       </and>
     </condition>
   </target>

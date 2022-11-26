@@ -1,4 +1,4 @@
-package main;
+package metalurgica;
 
 import java.util.List;
 
@@ -27,8 +27,8 @@ public class ProductStorage {
 
     }
 
-    public List<Product> getFiltered (Filter f) { //Pendiente crear clase Filter
+    // public List<Product> getFiltered (Filter f) { //Pendiente crear clase Filter
 
-    }
+    // }
 
 }

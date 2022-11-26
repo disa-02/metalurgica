@@ -1,4 +1,5 @@
-package main;
+package metalurgica;
+
 
 public class Material {
     private int id;
