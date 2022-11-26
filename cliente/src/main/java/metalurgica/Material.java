@@ -11,6 +11,12 @@ public class Material {
     public Material() {
 
     }
+    public Material(int id, String name, double price, int amount) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.amount = amount;
+    }
 
     public int getId() {
         return this.id;
