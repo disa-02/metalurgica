@@ -55,7 +55,7 @@ export const RoowUpdate = () => {
     const entity = {
       ...roowEntity,
       ...values,
-      sale: sales.find(it => it.id.toString() === values.sale.toString()),
+      sale: sales.find(it => it.saleCode.toString() === values.sale.toString()),
       product: products.find(it => it.id.toString() === values.product.toString()),
     };
 
@@ -71,7 +71,7 @@ export const RoowUpdate = () => {
       ? {}
       : {
           ...roowEntity,
-          sale: roowEntity?.sale?.id,
+          sale: roowEntity?.sale?.saleCode,
           product: roowEntity?.product?.id,
         };
 
@@ -118,8 +118,8 @@ export const RoowUpdate = () => {
                 <option value="" key="0" />
                 {sales
                   ? sales.map(otherEntity => (
-                      <option value={otherEntity.id} key={otherEntity.id}>
-                        {otherEntity.id}
+                      <option value={otherEntity.saleCode} key={otherEntity.saleCode}>
+                        {otherEntity.saleCode}
                       </option>
                     ))
                   : null}

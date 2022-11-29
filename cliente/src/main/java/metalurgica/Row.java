@@ -4,15 +4,17 @@ public class Row {
     private Product product;
     private double price;
     private int amount;
+    private String saleCode; //code del sale al que pertenece
 
     public Row() {
 
     }
 
-    public Row(Product product, double price, int amount) {
+    public Row(Product product, double price, int amount, String saleCode) {
         this.product = product;
         this.price = price;
         this.amount = amount;
+        this.saleCode = saleCode;
     }
 
     public Product getProduct() {
@@ -29,8 +31,10 @@ public class Row {
 
     @Override
     public String toString() {
-        return "Row [product=" + product + ", price=" + price + ", amount=" + amount + "]";
+        return "Row [product=" + product + ", price=" + price + ", amount=" + amount + ", saleCode=" + saleCode + "]";
     }
+
+
 
     
 }

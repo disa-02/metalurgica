@@ -76,7 +76,7 @@ export const Roow = () => {
                   </td>
                   <td>{roow.amountProduct}</td>
                   <td>{roow.subTotal}</td>
-                  <td>{roow.sale ? <Link to={`/sale/${roow.sale.id}`}>{roow.sale.id}</Link> : ''}</td>
+                  <td>{roow.sale ? <Link to={`/sale/${roow.sale.saleCode}`}>{roow.sale.saleCode}</Link> : ''}</td>
                   <td>{roow.product ? <Link to={`/product/${roow.product.id}`}>{roow.product.id}</Link> : ''}</td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">

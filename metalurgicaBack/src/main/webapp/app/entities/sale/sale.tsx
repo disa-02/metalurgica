@@ -49,9 +49,6 @@ export const Sale = () => {
             <thead>
               <tr>
                 <th>
-                  <Translate contentKey="metalurgicaBckApp.sale.id">ID</Translate>
-                </th>
-                <th>
                   <Translate contentKey="metalurgicaBckApp.sale.saleCode">Sale Code</Translate>
                 </th>
                 <th>
@@ -73,30 +70,29 @@ export const Sale = () => {
               {saleList.map((sale, i) => (
                 <tr key={`entity-${i}`} data-cy="entityTable">
                   <td>
-                    <Button tag={Link} to={`/sale/${sale.id}`} color="link" size="sm">
-                      {sale.id}
+                    <Button tag={Link} to={`/sale/${sale.saleCode}`} color="link" size="sm">
+                      {sale.saleCode}
                     </Button>
                   </td>
-                  <td>{sale.saleCode}</td>
                   <td>{sale.date ? <TextFormat type="date" value={sale.date} format={APP_LOCAL_DATE_FORMAT} /> : null}</td>
                   <td>{sale.total}</td>
                   <td>{sale.salesPerson ? <Link to={`/sales-person/${sale.salesPerson.id}`}>{sale.salesPerson.id}</Link> : ''}</td>
                   <td>{sale.record ? <Link to={`/record/${sale.record.id}`}>{sale.record.id}</Link> : ''}</td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
-                      <Button tag={Link} to={`/sale/${sale.id}`} color="info" size="sm" data-cy="entityDetailsButton">
+                      <Button tag={Link} to={`/sale/${sale.saleCode}`} color="info" size="sm" data-cy="entityDetailsButton">
                         <FontAwesomeIcon icon="eye" />{' '}
                         <span className="d-none d-md-inline">
                           <Translate contentKey="entity.action.view">View</Translate>
                         </span>
                       </Button>
-                      <Button tag={Link} to={`/sale/${sale.id}/edit`} color="primary" size="sm" data-cy="entityEditButton">
+                      <Button tag={Link} to={`/sale/${sale.saleCode}/edit`} color="primary" size="sm" data-cy="entityEditButton">
                         <FontAwesomeIcon icon="pencil-alt" />{' '}
                         <span className="d-none d-md-inline">
                           <Translate contentKey="entity.action.edit">Edit</Translate>
                         </span>
                       </Button>
-                      <Button tag={Link} to={`/sale/${sale.id}/delete`} color="danger" size="sm" data-cy="entityDeleteButton">
+                      <Button tag={Link} to={`/sale/${sale.saleCode}/delete`} color="danger" size="sm" data-cy="entityDeleteButton">
                         <FontAwesomeIcon icon="trash" />{' '}
                         <span className="d-none d-md-inline">
                           <Translate contentKey="entity.action.delete">Delete</Translate>

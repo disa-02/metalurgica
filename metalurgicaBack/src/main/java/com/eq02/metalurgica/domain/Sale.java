@@ -8,32 +8,32 @@ import java.util.Set;
 import javax.persistence.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.springframework.data.domain.Persistable;
 
 /**
  * A Sale.
  */
+@JsonIgnoreProperties(value = { "new" })
 @Entity
 @Table(name = "sale")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @SuppressWarnings("common-java:DuplicatedBlocks")
-public class Sale implements Serializable {
+public class Sale implements Serializable, Persistable<String> {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
-    @SequenceGenerator(name = "sequenceGenerator")
-    @Column(name = "id")
-    private Long id;
-
     @Column(name = "sale_code")
-    private Integer saleCode;
+    private String saleCode;
 
     @Column(name = "date")
     private LocalDate date;
 
     @Column(name = "total")
     private Double total;
+
+    @Transient
+    private boolean isPersisted;
 
     @OneToMany(mappedBy = "sale")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -50,29 +50,16 @@ public class Sale implements Serializable {
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
-    public Long getId() {
-        return this.id;
-    }
-
-    public Sale id(Long id) {
-        this.setId(id);
-        return this;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Integer getSaleCode() {
+    public String getSaleCode() {
         return this.saleCode;
     }
 
-    public Sale saleCode(Integer saleCode) {
+    public Sale saleCode(String saleCode) {
         this.setSaleCode(saleCode);
         return this;
     }
 
-    public void setSaleCode(Integer saleCode) {
+    public void setSaleCode(String saleCode) {
         this.saleCode = saleCode;
     }
 
@@ -100,6 +87,28 @@ public class Sale implements Serializable {
 
     public void setTotal(Double total) {
         this.total = total;
+    }
+
+    @Override
+    public String getId() {
+        return this.saleCode;
+    }
+
+    @Transient
+    @Override
+    public boolean isNew() {
+        return !this.isPersisted;
+    }
+
+    public Sale setIsPersisted() {
+        this.isPersisted = true;
+        return this;
+    }
+
+    @PostLoad
+    @PostPersist
+    public void updateEntityState() {
+        this.setIsPersisted();
     }
 
     public Set<Roow> getRoows() {
@@ -169,7 +178,7 @@ public class Sale implements Serializable {
         if (!(o instanceof Sale)) {
             return false;
         }
-        return id != null && id.equals(((Sale) o).id);
+        return saleCode != null && saleCode.equals(((Sale) o).saleCode);
     }
 
     @Override
@@ -182,8 +191,7 @@ public class Sale implements Serializable {
     @Override
     public String toString() {
         return "Sale{" +
-            "id=" + getId() +
-            ", saleCode=" + getSaleCode() +
+            "saleCode=" + getSaleCode() +
             ", date='" + getDate() + "'" +
             ", total=" + getTotal() +
             "}";

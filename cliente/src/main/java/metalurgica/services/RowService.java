@@ -28,7 +28,6 @@ public class RowService {
             conn.setRequestMethod("GET");
             conn.connect();
             int responsecode = conn.getResponseCode();
-
             if (responsecode == 200) {
                 String inline ="";
                 //se obtiene el resultado de la request
@@ -37,7 +36,6 @@ public class RowService {
                 while (scanner.hasNext()) {
                     inline += scanner.nextLine();
                 }
-
                 //Close the scanner
                 scanner.close();
 
@@ -59,11 +57,21 @@ public class RowService {
                     }
                     Double price = object.getDouble("subTotal");
                     int amount = object.getInt("amountProduct");
-                    Row row = new Row(product,price,amount);
+                    String saleString = object.get("sale").toString();
+                    String saleCode ;
+                    if(saleString.equals("null"))
+                        saleCode = " ";
+                    else{
+                        JSONObject productJson = new JSONObject(saleString);
+
+                        saleCode = productJson.getString("saleCode");
+
+                    }
+                    Row row = new Row(product,price,amount,saleCode);
+
                     rows.add(row);
                 }  
             }
-            
         }catch (Exception e) {
             e.printStackTrace();
         }

@@ -45,12 +45,12 @@ public interface SaleService {
      * @param id the id of the entity.
      * @return the entity.
      */
-    Optional<Sale> findOne(Long id);
+    Optional<Sale> findOne(String id);
 
     /**
      * Delete the "id" sale.
      *
      * @param id the id of the entity.
      */
-    void delete(Long id);
+    void delete(String id);
 }

@@ -47,7 +47,7 @@ export const RoowDetail = () => {
           <dt>
             <Translate contentKey="metalurgicaBckApp.roow.sale">Sale</Translate>
           </dt>
-          <dd>{roowEntity.sale ? roowEntity.sale.id : ''}</dd>
+          <dd>{roowEntity.sale ? roowEntity.sale.saleCode : ''}</dd>
           <dt>
             <Translate contentKey="metalurgicaBckApp.roow.product">Product</Translate>
           </dt>

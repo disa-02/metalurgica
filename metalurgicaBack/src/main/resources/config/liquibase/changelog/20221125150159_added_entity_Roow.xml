@@ -20,7 +20,7 @@
             <column name="sub_total" type="double">
                 <constraints nullable="true" />
             </column>
-            <column name="sale_id" type="bigint">
+            <column name="sale_sale_code" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             <column name="product_id" type="bigint">

@@ -27,12 +27,6 @@ export const SaleDetail = () => {
         </h2>
         <dl className="jh-entity-details">
           <dt>
-            <span id="id">
-              <Translate contentKey="global.field.id">ID</Translate>
-            </span>
-          </dt>
-          <dd>{saleEntity.id}</dd>
-          <dt>
             <span id="saleCode">
               <Translate contentKey="metalurgicaBckApp.sale.saleCode">Sale Code</Translate>
             </span>
@@ -66,7 +60,7 @@ export const SaleDetail = () => {
           </span>
         </Button>
         &nbsp;
-        <Button tag={Link} to={`/sale/${saleEntity.id}/edit`} replace color="primary">
+        <Button tag={Link} to={`/sale/${saleEntity.saleCode}/edit`} replace color="primary">
           <FontAwesomeIcon icon="pencil-alt" />{' '}
           <span className="d-none d-md-inline">
             <Translate contentKey="entity.action.edit">Edit</Translate>

@@ -92,21 +92,14 @@ export const SaleUpdate = () => {
             <ValidatedForm defaultValues={defaultValues()} onSubmit={saveEntity}>
               {!isNew ? (
                 <ValidatedField
-                  name="id"
+                  name="saleCode"
                   required
                   readOnly
-                  id="sale-id"
-                  label={translate('global.field.id')}
+                  id="sale-saleCode"
+                  label={translate('metalurgicaBckApp.sale.saleCode')}
                   validate={{ required: true }}
                 />
               ) : null}
-              <ValidatedField
-                label={translate('metalurgicaBckApp.sale.saleCode')}
-                id="sale-saleCode"
-                name="saleCode"
-                data-cy="saleCode"
-                type="text"
-              />
               <ValidatedField label={translate('metalurgicaBckApp.sale.date')} id="sale-date" name="date" data-cy="date" type="date" />
               <ValidatedField label={translate('metalurgicaBckApp.sale.total')} id="sale-total" name="total" data-cy="total" type="text" />
               <ValidatedField

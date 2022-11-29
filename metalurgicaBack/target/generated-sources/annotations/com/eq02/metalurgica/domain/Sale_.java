@@ -14,8 +14,7 @@ public abstract class Sale_ {
 	public static volatile SingularAttribute<Sale, Double> total;
 	public static volatile SetAttribute<Sale, Roow> roows;
 	public static volatile SingularAttribute<Sale, Record> record;
-	public static volatile SingularAttribute<Sale, Integer> saleCode;
-	public static volatile SingularAttribute<Sale, Long> id;
+	public static volatile SingularAttribute<Sale, String> saleCode;
 	public static volatile SingularAttribute<Sale, SalesPerson> salesPerson;
 
 	public static final String DATE = "date";
@@ -23,7 +22,6 @@ public abstract class Sale_ {
 	public static final String ROOWS = "roows";
 	public static final String RECORD = "record";
 	public static final String SALE_CODE = "saleCode";
-	public static final String ID = "id";
 	public static final String SALES_PERSON = "salesPerson";
 
 }

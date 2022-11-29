@@ -26,7 +26,7 @@ entity Subscribe{
 }
 
 entity Sale{
-	saleCode Integer,
+	@Id saleCode String,
     date LocalDate,
     total Double    
 }

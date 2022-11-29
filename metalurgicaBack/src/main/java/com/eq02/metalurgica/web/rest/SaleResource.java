@@ -50,52 +50,54 @@ public class SaleResource {
     @PostMapping("/sales")
     public ResponseEntity<Sale> createSale(@RequestBody Sale sale) throws URISyntaxException {
         log.debug("REST request to save Sale : {}", sale);
-        if (sale.getId() != null) {
+        if (sale.getSaleCode() != null) {
             throw new BadRequestAlertException("A new sale cannot already have an ID", ENTITY_NAME, "idexists");
         }
         Sale result = saleService.save(sale);
         return ResponseEntity
-            .created(new URI("/api/sales/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
+            .created(new URI("/api/sales/" + result.getSaleCode()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getSaleCode()))
             .body(result);
     }
 
     /**
-     * {@code PUT  /sales/:id} : Updates an existing sale.
+     * {@code PUT  /sales/:saleCode} : Updates an existing sale.
      *
-     * @param id the id of the sale to save.
+     * @param saleCode the id of the sale to save.
      * @param sale the sale to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated sale,
      * or with status {@code 400 (Bad Request)} if the sale is not valid,
      * or with status {@code 500 (Internal Server Error)} if the sale couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PutMapping("/sales/{id}")
-    public ResponseEntity<Sale> updateSale(@PathVariable(value = "id", required = false) final Long id, @RequestBody Sale sale)
-        throws URISyntaxException {
-        log.debug("REST request to update Sale : {}, {}", id, sale);
-        if (sale.getId() == null) {
+    @PutMapping("/sales/{saleCode}")
+    public ResponseEntity<Sale> updateSale(
+        @PathVariable(value = "saleCode", required = false) final String saleCode,
+        @RequestBody Sale sale
+    ) throws URISyntaxException {
+        log.debug("REST request to update Sale : {}, {}", saleCode, sale);
+        if (sale.getSaleCode() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
-        if (!Objects.equals(id, sale.getId())) {
+        if (!Objects.equals(saleCode, sale.getSaleCode())) {
             throw new BadRequestAlertException("Invalid ID", ENTITY_NAME, "idinvalid");
         }
 
-        if (!saleRepository.existsById(id)) {
+        if (!saleRepository.existsById(saleCode)) {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
 
         Sale result = saleService.update(sale);
         return ResponseEntity
             .ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, sale.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, sale.getSaleCode()))
             .body(result);
     }
 
     /**
-     * {@code PATCH  /sales/:id} : Partial updates given fields of an existing sale, field will ignore if it is null
+     * {@code PATCH  /sales/:saleCode} : Partial updates given fields of an existing sale, field will ignore if it is null
      *
-     * @param id the id of the sale to save.
+     * @param saleCode the id of the sale to save.
      * @param sale the sale to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated sale,
      * or with status {@code 400 (Bad Request)} if the sale is not valid,
@@ -103,18 +105,20 @@ public class SaleResource {
      * or with status {@code 500 (Internal Server Error)} if the sale couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PatchMapping(value = "/sales/{id}", consumes = { "application/json", "application/merge-patch+json" })
-    public ResponseEntity<Sale> partialUpdateSale(@PathVariable(value = "id", required = false) final Long id, @RequestBody Sale sale)
-        throws URISyntaxException {
-        log.debug("REST request to partial update Sale partially : {}, {}", id, sale);
-        if (sale.getId() == null) {
+    @PatchMapping(value = "/sales/{saleCode}", consumes = { "application/json", "application/merge-patch+json" })
+    public ResponseEntity<Sale> partialUpdateSale(
+        @PathVariable(value = "saleCode", required = false) final String saleCode,
+        @RequestBody Sale sale
+    ) throws URISyntaxException {
+        log.debug("REST request to partial update Sale partially : {}, {}", saleCode, sale);
+        if (sale.getSaleCode() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
-        if (!Objects.equals(id, sale.getId())) {
+        if (!Objects.equals(saleCode, sale.getSaleCode())) {
             throw new BadRequestAlertException("Invalid ID", ENTITY_NAME, "idinvalid");
         }
 
-        if (!saleRepository.existsById(id)) {
+        if (!saleRepository.existsById(saleCode)) {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
 
@@ -122,7 +126,7 @@ public class SaleResource {
 
         return ResponseUtil.wrapOrNotFound(
             result,
-            HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, sale.getId().toString())
+            HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, sale.getSaleCode())
         );
     }
 
@@ -144,7 +148,7 @@ public class SaleResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the sale, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/sales/{id}")
-    public ResponseEntity<Sale> getSale(@PathVariable Long id) {
+    public ResponseEntity<Sale> getSale(@PathVariable String id) {
         log.debug("REST request to get Sale : {}", id);
         Optional<Sale> sale = saleService.findOne(id);
         return ResponseUtil.wrapOrNotFound(sale);
@@ -157,12 +161,9 @@ public class SaleResource {
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
     @DeleteMapping("/sales/{id}")
-    public ResponseEntity<Void> deleteSale(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteSale(@PathVariable String id) {
         log.debug("REST request to delete Sale : {}", id);
         saleService.delete(id);
-        return ResponseEntity
-            .noContent()
-            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
-            .build();
+        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id)).build();
     }
 }

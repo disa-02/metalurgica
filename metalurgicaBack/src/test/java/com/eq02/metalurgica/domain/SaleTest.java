@@ -11,13 +11,13 @@ class SaleTest {
     void equalsVerifier() throws Exception {
         TestUtil.equalsVerifier(Sale.class);
         Sale sale1 = new Sale();
-        sale1.setId(1L);
+        sale1.setSaleCode("id1");
         Sale sale2 = new Sale();
-        sale2.setId(sale1.getId());
+        sale2.setSaleCode(sale1.getSaleCode());
         assertThat(sale1).isEqualTo(sale2);
-        sale2.setId(2L);
+        sale2.setSaleCode("id2");
         assertThat(sale1).isNotEqualTo(sale2);
-        sale1.setId(null);
+        sale1.setSaleCode(null);
         assertThat(sale1).isNotEqualTo(sale2);
     }
 }

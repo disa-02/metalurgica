@@ -4,8 +4,7 @@ import { ISalesPerson } from 'app/shared/model/sales-person.model';
 import { IRecord } from 'app/shared/model/record.model';
 
 export interface ISale {
-  id?: number;
-  saleCode?: number | null;
+  saleCode?: string;
   date?: string | null;
   total?: number | null;
   roows?: IRoow[] | null;

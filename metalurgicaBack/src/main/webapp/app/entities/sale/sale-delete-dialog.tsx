@@ -36,7 +36,7 @@ export const SaleDeleteDialog = () => {
   }, [updateSuccess]);
 
   const confirmDelete = () => {
-    dispatch(deleteEntity(saleEntity.id));
+    dispatch(deleteEntity(saleEntity.saleCode));
   };
 
   return (
@@ -45,7 +45,7 @@ export const SaleDeleteDialog = () => {
         <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
       </ModalHeader>
       <ModalBody id="metalurgicaBckApp.sale.delete.question">
-        <Translate contentKey="metalurgicaBckApp.sale.delete.question" interpolate={{ id: saleEntity.id }}>
+        <Translate contentKey="metalurgicaBckApp.sale.delete.question" interpolate={{ id: saleEntity.saleCode }}>
           Are you sure you want to delete this Sale?
         </Translate>
       </ModalBody>

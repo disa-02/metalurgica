@@ -34,6 +34,7 @@ public class SaleServiceImpl implements SaleService {
     @Override
     public Sale update(Sale sale) {
         log.debug("Request to update Sale : {}", sale);
+        sale.setIsPersisted();
         return saleRepository.save(sale);
     }
 
@@ -42,11 +43,8 @@ public class SaleServiceImpl implements SaleService {
         log.debug("Request to partially update Sale : {}", sale);
 
         return saleRepository
-            .findById(sale.getId())
+            .findById(sale.getSaleCode())
             .map(existingSale -> {
-                if (sale.getSaleCode() != null) {
-                    existingSale.setSaleCode(sale.getSaleCode());
-                }
                 if (sale.getDate() != null) {
                     existingSale.setDate(sale.getDate());
                 }
@@ -68,13 +66,13 @@ public class SaleServiceImpl implements SaleService {
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<Sale> findOne(Long id) {
+    public Optional<Sale> findOne(String id) {
         log.debug("Request to get Sale : {}", id);
         return saleRepository.findById(id);
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(String id) {
         log.debug("Request to delete Sale : {}", id);
         saleRepository.deleteById(id);
     }
