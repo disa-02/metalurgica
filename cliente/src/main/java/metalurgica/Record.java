@@ -1,13 +1,25 @@
 package metalurgica;
 
 import java.util.List;
+
+import metalurgica.services.SaleService;
+
 import java.util.Date;
 
 public class Record {
     private List<Sale> sales;
+    private static Record instance = null;
 
-    public Record() {
+    private Record() {
+        
+    }
 
+    public static Record getInstance()
+    {
+        if (instance == null)
+            instance = new Record();
+  
+        return instance;
     }
 
     public List<Sale> getSales(Date date) { //Para recuperar las ventas DESDE una fecha
