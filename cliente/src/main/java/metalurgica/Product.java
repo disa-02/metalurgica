@@ -31,6 +31,7 @@ public class Product {
     public double getPrice() {
         return this.price;
     }
+    public double getAmount() { return this.amount;}
 
     public void setName(String name) {
         this.name = name;
@@ -42,6 +43,9 @@ public class Product {
 
     public void setAmount(int amount) {
         this.amount = amount;
+    }
+    public void subtractAmount(int amount) {
+        this.amount =- amount;
     }
 
     @Override

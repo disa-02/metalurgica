@@ -11,19 +11,23 @@ public class Sale {
     private int seller; //probablemente no se necesite
     private Date date;
     private List<Row> rows;
+    private static int SALECODE;
 
     public Sale() {
 
     }
 
-    public Sale(String salesCode, double total, Date date) {
+    public Sale(String salesCode, double total, Date date, ArrayList<Row> rows) {
         this.salesCode = salesCode;
         this.total = total;
         this.date = date;
         seller = -1;
-        rows = new ArrayList<>();
+        this.rows = rows;
     }
 
+    public static String getSaleCode() {
+        return String.valueOf(SALECODE++);
+    }
     public String getCode() {
         return this.salesCode;
     }

@@ -3,18 +3,18 @@ package metalurgica;
 public class Row {
     private Product product;
     private double price;
+    private double subtotal;
     private int amount;
-    private String saleCode; //code del sale al que pertenece
 
     public Row() {
 
     }
 
-    public Row(Product product, double price, int amount, String saleCode) {
+    public Row(Product product, double price, int amount) {
         this.product = product;
         this.price = price;
         this.amount = amount;
-        this.saleCode = saleCode;
+        this.subtotal = amount * price;
     }
 
     public Product getProduct() {
@@ -31,7 +31,7 @@ public class Row {
 
     @Override
     public String toString() {
-        return "Row [product=" + product + ", price=" + price + ", amount=" + amount + ", saleCode=" + saleCode + "]";
+        return "Row [product=" + product + ", price=" + price + ", amount=" + amount + "]";
     }
 
 

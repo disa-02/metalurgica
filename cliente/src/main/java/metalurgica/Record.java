@@ -25,6 +25,9 @@ public class Record {
     public List<Sale> getSales(Date date) { //Para recuperar las ventas DESDE una fecha
         return null;
     }
+    public void AddSales(Sale s) {
+        sales.add(s);
+    }
 
     public List<Sale> getSales() { //Para recuperar TODAS las ventas
         return null;

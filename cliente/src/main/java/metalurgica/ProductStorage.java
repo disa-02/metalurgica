@@ -1,7 +1,12 @@
 package metalurgica;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class ProductStorage {
     private ProductStorage ps = this; //no se si es asi
@@ -35,7 +40,21 @@ public class ProductStorage {
 
     public void makeSale(Map<Product,Integer> mapa) {
 
-        mapa.keySet().stream().anyMatch()
+        if ( mapa.keySet().stream().anyMatch(x -> mapa.get(x) > x.getAmount())){
+            System.err.println("Se esta haciendo una orden de compra mayor al stock de un producto");
+        }else {
+            double price = 0.;
+            ArrayList<Row> rows = new ArrayList<>();
+            double total = 0.;
+            for ( Product product : mapa.keySet()){
+                rows.add( new Row(product, product.getPrice(), mapa.get(product)));
+                product.subtractAmount(mapa.get(product));
+                total =+ product.getAmount() * product.getPrice();
+            }
+            Sale sale = new Sale(Sale.getSaleCode(), total , Date.from(Instant.from(LocalDateTime.now())), rows);
+            Record.getInstance().AddSales(sale);
+        }
+
         // chequear lista de productos si hay stock
 
         // actualizar la lista
