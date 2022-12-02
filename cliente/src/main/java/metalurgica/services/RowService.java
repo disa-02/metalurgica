@@ -67,7 +67,7 @@ public class RowService {
                         saleCode = productJson.getString("saleCode");
 
                     }
-                    Row row = new Row(product,price,amount);
+                    Row row = new Row(product,price,amount,saleCode);
 
                     rows.add(row);
                 }  

@@ -3,18 +3,22 @@ package metalurgica;
 public class Row {
     private Product product;
     private double price;
-    private double subtotal;
     private int amount;
+    private String saleCode; //code del sale al que pertenece
 
     public Row() {
 
     }
 
-    public Row(Product product, double price, int amount) {
+    public String getSaleCode() {
+        return saleCode;
+    }
+
+    public Row(Product product, double price, int amount, String saleCode) {
         this.product = product;
         this.price = price;
         this.amount = amount;
-        this.subtotal = amount * price;
+        this.saleCode = saleCode;
     }
 
     public Product getProduct() {

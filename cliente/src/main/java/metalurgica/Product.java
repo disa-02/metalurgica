@@ -1,6 +1,9 @@
 package metalurgica;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import org.json.JSONObject;
 
 public class Product {
     private int id;
@@ -18,6 +21,10 @@ public class Product {
         this.name = name;
         this.price = price;
         this.amount = amount;
+        conformation = new ArrayList<>();
+    }
+
+    public Product() {
     }
 
     public int getId() {
@@ -48,10 +55,30 @@ public class Product {
         this.amount =- amount;
     }
 
+    public JSONObject getJson(){
+        JSONObject json = new JSONObject();
+        // json.put("id", id);
+        json.put("name", name);
+        json.put("stock", amount);
+        json.put("buyPrice", price);
+        json.put("sellPrice", 0);
+        // json += "{\n";
+        // json += "\"id\" :" + id + ",\n";
+        // json += "\"name\" :" + "\"" + name + "\"" + ",\n";
+        // json += "\"stock\" :" + amount + ",\n";
+        // json += "\"buyPrice\" :" + 0 + ",\n";
+        // json += "\"sellPrice\" :" + 0 + "\n";
+        // json += "}";
+
+        return json;
+    }
     @Override
     public String toString() {
-        return "Product [id=" + id + ", name=" + name + ", price=" + price + ", amount=" + amount + "]";
+        return "Product [id=" + id + ", name=" + name + ", price=" + price + ", amount=" + amount + ", conformation="
+                + conformation + "]";
     }
+
+
     
 
 }

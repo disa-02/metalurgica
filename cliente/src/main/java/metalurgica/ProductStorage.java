@@ -8,13 +8,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import metalurgica.services.ProductService;
+
 public class ProductStorage {
-    private ProductStorage ps = this; //no se si es asi
     private List<Product> products;
     private static ProductStorage instance = null;
 
     private ProductStorage() {
-
+        this.products = ProductService.get();
     }
 
     public static ProductStorage getInstance()
@@ -46,12 +47,13 @@ public class ProductStorage {
             double price = 0.;
             ArrayList<Row> rows = new ArrayList<>();
             double total = 0.;
+            String saleCode = Sale.getSaleCode();
             for ( Product product : mapa.keySet()){
-                rows.add( new Row(product, product.getPrice(), mapa.get(product)));
+                rows.add( new Row(product, product.getPrice(), mapa.get(product),saleCode));
                 product.subtractAmount(mapa.get(product));
                 total =+ product.getAmount() * product.getPrice();
             }
-            Sale sale = new Sale(Sale.getSaleCode(), total , Date.from(Instant.from(LocalDateTime.now())), rows);
+            Sale sale = new Sale(saleCode, total , Date.from(Instant.from(LocalDateTime.now())), rows);
             Record.getInstance().AddSales(sale);
         }
 
@@ -62,8 +64,14 @@ public class ProductStorage {
         // crear venta y rows y adjuntar al record
     }
 
+
+
     public void delete (int id) {
 
+    }
+
+    public List<Product> getProducts() {
+        return products;
     }
 
     // public List<Product> getFiltered (Filter f) { //Pendiente crear clase Filter

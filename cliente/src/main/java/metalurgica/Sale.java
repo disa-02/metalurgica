@@ -25,6 +25,14 @@ public class Sale {
         this.rows = rows;
     }
 
+    public Sale(String salesCode, double total, Date date) {
+        this.salesCode = salesCode;
+        this.total = total;
+        this.date = date;
+        seller = -1;
+        this.rows = new ArrayList();
+    }
+
     public static String getSaleCode() {
         return String.valueOf(SALECODE++);
     }
@@ -44,11 +52,20 @@ public class Sale {
         return this.rows;
     }
 
+    public String getSalesCode() {
+        return this.salesCode;
+    }
+
+    public void addRow(Row row){
+        rows.add(row);
+    }
+
     @Override
     public String toString() {
         return "Sale [salesCode=" + salesCode + ", total=" + total + ", seller=" + seller + ", date=" + date + ", rows="
                 + rows + "]";
     }
+
 
 
 
