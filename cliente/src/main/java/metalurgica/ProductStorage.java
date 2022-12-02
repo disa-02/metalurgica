@@ -51,17 +51,13 @@ public class ProductStorage {
             for ( Product product : mapa.keySet()){
                 rows.add( new Row(product, product.getPrice(), mapa.get(product),saleCode));
                 product.subtractAmount(mapa.get(product));
+                System.out.print(product.toString());
                 total =+ product.getAmount() * product.getPrice();
             }
-            Sale sale = new Sale(saleCode, total , Date.from(Instant.from(LocalDateTime.now())), rows);
+            Sale sale = new Sale(saleCode, total , java.sql.Timestamp.valueOf(LocalDateTime.now()), rows);
+            //Sale sale = new Sale(saleCode, total , Date.from(Instant.from(LocalDateTime.now())), rows);
             Record.getInstance().AddSales(sale);
         }
-
-        // chequear lista de productos si hay stock
-
-        // actualizar la lista
-
-        // crear venta y rows y adjuntar al record
     }
 
 

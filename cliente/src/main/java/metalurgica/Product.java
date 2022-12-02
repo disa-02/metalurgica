@@ -52,7 +52,7 @@ public class Product {
         this.amount = amount;
     }
     public void subtractAmount(int amount) {
-        this.amount =- amount;
+        this.amount = this.amount - amount;
     }
 
     public JSONObject getJson(){
