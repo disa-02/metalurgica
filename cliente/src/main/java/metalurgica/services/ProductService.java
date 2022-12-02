@@ -65,15 +65,15 @@ public class ProductService {
         JSONObject pJson = product.getJson();
         try {
 
-            URL url = new URL(urlGet + "/1");
+            URL url = new URL(urlPost);
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("PUT");
+            conn.setRequestMethod("POST");
             //conn.setDoInput(true);
-  conn.setRequestProperty("User-Agent", "Mozilla/5.0");
-  conn.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
-  conn.setRequestProperty("Content-Type","application/json");
- 
+            conn.setRequestProperty("User-Agent", "Mozilla/5.0");
+            conn.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
+            conn.setRequestProperty("Content-Type","application/json");
+            
             conn.setDoOutput(true);
             
             DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
@@ -84,8 +84,37 @@ public class ProductService {
             conn.connect();
             int responsecode = conn.getResponseCode();
             System.out.println(responsecode);
-    }catch (Exception e) {
-        e.printStackTrace();
-    } 
-}
+        }catch (Exception e) {
+            e.printStackTrace();
+        } 
+    }
+
+    public static void update(Product product){
+        JSONObject pJson = product.getJson();
+        pJson.put("id", product.getId());
+        try {
+
+            URL url = new URL(urlPost + "/" + product.getId());
+
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("PUT");
+            //conn.setDoInput(true);
+            conn.setRequestProperty("User-Agent", "Mozilla/5.0");
+            conn.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
+            conn.setRequestProperty("Content-Type","application/json");
+            
+            conn.setDoOutput(true);
+            
+            DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
+            wr.writeBytes(pJson.toString());
+            wr.flush();
+            wr.close();
+
+            conn.connect();
+            int responsecode = conn.getResponseCode();
+            System.out.println(responsecode);
+        }catch (Exception e) {
+            e.printStackTrace();
+        } 
+    }
 }

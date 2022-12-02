@@ -22,7 +22,8 @@ public class App
         //  System.out.println(ProductService.get());
         ProductStorage.getInstance();
         Record.getInstance().getSales();
-        Product p = new Product(1, "a", 0, 5);
-        ProductService.post(p);
+        Product p = new Product(1, "modificado", 0, 5);
+        // ProductService.post(p);
+        ProductService.update(p);
     }
 }
